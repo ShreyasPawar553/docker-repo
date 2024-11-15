@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fertilizer Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="background:#BCBBB8">
+
+    <!-- Include Header -->
+    {% include 'header.html' %}
+
+    <div class="container my-3">
+        <h1 class="text-success">Fertilizer Recommendation System 🥕</h1>
+
+        <form action="/fertilizer/predict" method="POST">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="temp">Temperature (°C)</label>
+                    <input type="number" id="temp" name="temp" placeholder="e.g. 25" class="form-control" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="humid">Humidity (%)</label>
+                    <input type="number" id="humid" name="humid" placeholder="e.g. 60" class="form-control" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="mois">Moisture (%)</label>
+                    <input type="number" id="mois" name="mois" placeholder="e.g. 30" class="form-control" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="soil">Soil Type</label>
+                    <select id="soil" name="soil" class="form-control" required>
+                        <option value="">Select Soil Type</option>
+                        <option value="1">Loamy</option>
+                        <option value="2">Clay</option>
+                        <option value="3">Sandy</option>
+                        <option value="4">Silty</option>
+                        <option value="5">Peaty</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <label for="crop">Crop Type</label>
+                    <select id="crop" name="crop" class="form-control" required>
+                        <option value="">Select Crop Type</option>
+                        <option value="1">Rice</option>
+                        <option value="2">Maize</option>
+                        <option value="3">Jute</option>
+                        <option value="4">Cotton</option>
+                        <option value="5">Coconut</option>
+                        <option value="6">Papaya</option>
+                        <option value="7">Orange</option>
+                        <option value="8">Apple</option>
+                        <option value="9">Muskmelon</option>
+                        <option value="10">Watermelon</option>
+                        <option value="11">Grapes</option>
+                        <option value="12">Mango</option>
+                        <option value="13">Banana</option>
+                        <option value="14">Pomegranate</option>
+                        <option value="15">Lentil</option>
+                        <option value="16">Blackgram</option>
+                        <option value="17">Mungbean</option>
+                        <option value="18">Mothbeans</option>
+                        <option value="19">Pigeonpeas</option>
+                        <option value="20">Kidneybeans</option>
+                        <option value="21">Chickpea</option>
+                        <option value="22">Coffee</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="nitro">Nitrogen (kg/ha)</label>
+                    <input type="number" id="nitro" name="nitro" placeholder="e.g. 50" class="form-control" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="pota">Potassium (kg/ha)</label>
+                    <input type="number" id="pota" name="pota" placeholder="e.g. 30" class="form-control" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="phos">Phosphorus (kg/ha)</label>
+                    <input type="number" id="phos" name="phos" placeholder="e.g. 20" class="form-control" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-4">Predict Fertilizer</button>
+        </form>
+
+        {% if x %}
+        <h2 class="mt-4">Recommendation: {{ x }}</h2>
+        {% endif %}
+    </div>
+
+    <!-- Include Footer -->
+    {% include 'footer.html' %}
+
+</body>
+</html>

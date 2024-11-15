@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function getWeather() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    // Redirect to the weather route with coordinates
+                    window.location.href = `/weather?lat=${lat}&lon=${lon}`;
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+    </script>
+</head>
+<body style="background:#BCBBB8">
+
+    <!-- Include Header -->
+    {% include 'header.html' %}
+
+    <div class="container my-3">
+        <h1 class="text-success">Current Weather & 5-Day Forecast ☀️</h1>
+
+        <button onclick="getWeather()" class="btn btn-primary">Get Current Weather</button>
+
+        {% if data %}
+            <div class="mt-4">
+                <h2>Current Weather in {{ data.country_code }}</h2>
+                <p><strong>Coordinates:</strong> {{ data.coordinate }}</p>
+                <p><strong>Temperature:</strong> {{ data.temp }} °C</p>
+                <p><strong>Pressure:</strong> {{ data.pressure }} hPa</p>
+                <p><strong>Humidity:</strong> {{ data.humidity }}%</p>
+            </div>
+        {% elif data.error %}
+            <h2 class="mt-4 text-danger">{{ data.error }}</h2>
+        {% endif %}
+
+        {% if forecast_data %}
+            <h2 class="mt-4">5-Day Forecast</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Date and Time</th>
+                        <th>Temperature (°C)</th>
+                        <th>Pressure (hPa)</th>
+                        <th>Humidity (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for forecast in forecast_data %}
+                        <tr>
+                            <td>{{ forecast.datetime }}</td>
+                            <td>{{ forecast.temp }} °C</td>
+                            <td>{{ forecast.pressure }} hPa</td>
+                            <td>{{ forecast.humidity }}%</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+
+    <!-- Include Footer -->
+    {% include 'footer.html' %}
+
+</body>
+</html>

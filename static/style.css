@@ -1,0 +1,141 @@
+/* Navbar Custom Styles */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.navbar-brand {
+    font-size: 1.8rem; /* Larger brand font size */
+    font-weight: bold; /* Bold brand text */
+    transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.1rem; /* Link font size */
+    padding: 0.75rem 1rem; /* Padding for links */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Lighten background on hover */
+    color: #ffffff; /* Change text color on hover */
+}
+
+.navbar-nav .nav-link.active {
+    font-weight: bold; /* Bold active link */
+    border-bottom: 2px solid #ffffff; /* Underline active link */
+}
+
+/* Toggler button styles */
+.navbar-toggler {
+    border: none; /* Remove border */
+}
+
+.navbar-toggler:focus {
+    box-shadow: none; /* Remove focus outline */
+}
+
+.navbar-toggler-icon {
+    background-color: white; /* Change toggler icon color */
+}
+
+
+
+
+/* Global Styles */
+body {
+    background-color: #f8f9fa; /* Light background */
+    font-family: Arial, sans-serif; /* Font style */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make sure the body takes at least the full height of the viewport */
+}
+
+.wrapper {
+    flex: 1; /* Allow the wrapper to grow and fill the available space */
+}
+
+/* Navbar Styles */
+nav {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+}
+
+.navbar {
+    margin-bottom: 20px; /* Space below navbar */
+}
+
+.navbar-brand {
+    font-size: 1.5em; /* Brand font size */
+}
+
+.nav-link {
+    font-size: 1.1em; /* Link font size */
+}
+
+/* Container Styles */
+.container {
+
+    max-width: 800px; /* Max width of content */
+    margin-top:120px ; /* Center content */
+    padding: 20px; /* Padding inside container */
+    background-color: #ffffff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+}
+
+/* Option Links */
+.option {
+    display: block; /* Make options block elements */
+    text-align: center; /* Center text */
+    margin: 10px 0; /* Margin above and below */
+    padding: 20px; /* Padding inside option */
+    background-color: #12c424; /* Primary color */
+    color: white; /* White text */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s; /* Transition effect */
+}
+
+.option:hover {
+    background-color: #0d8c1a; /* Darker on hover */
+}
+
+/* Form Styles */
+form {
+    margin-top: 20px; /* Space above form */
+}
+
+.form-control {
+    border-radius: 4px; /* Rounded corners */
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #12c424; /* Primary button color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding inside button */
+    font-size: 1em; /* Button font size */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker on hover */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center; /* Center text */
+    margin-top: 20px; /* Space above footer */
+    padding: 10px; /* Padding inside footer */
+    background-color: #12c424; /* Footer background color */
+    color: white; /* Footer text color */
+    width: 100%; /* Full width */
+    position: relative; /* Ensure it stays in the document flow */
+    bottom: 0; /* Keep it at the bottom of the wrapper */
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRUSHIसखी</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Include Header -->
+    {% include 'header.html' %}
+
+    <!-- Options Section -->
+    <div class="container">
+        <a href="/disease" class="option">
+            <h3>Disease Prediction</h3>
+        </a>
+        <a href="/crop" class="option">
+            <h3>Crop Recommendation</h3>
+        </a>
+        <a href="/fertilizer" class="option">
+            <h3>Fertilizer Recommendation</h3>
+        </a>
+        <a href="/weather" class="option">
+            <h3>Weather Forecast</h3>
+        </a>
+       
+    </div>
+
+    <!-- Include Footer -->
+    {% include 'footer.html' %}
+
+</body>
+</html>
