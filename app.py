@@ -134,6 +134,9 @@ def crop_predict():
     except Exception as e:
         return render_template('crop.html', result=f"Error: {str(e)}")
 
-# Run app
+import os
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Get port from environment or default to 5000
+    app.run(host='0.0.0.0', port=port)
+
